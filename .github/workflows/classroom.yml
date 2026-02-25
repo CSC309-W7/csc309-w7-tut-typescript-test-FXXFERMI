@@ -13,18 +13,28 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Basic code validation test
-      id: basic-code-validation-test
+    - name: TypeScript Compile Check
+      id: typescript-compile-check
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Basic code validation test
+        test-name: TypeScript Compile Check
+        setup-command: npm install
+        command: npm run typecheck
+        timeout: 10
+        max-score: 1
+    - name: Runtime Tests
+      id: runtime-tests
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Runtime Tests
         setup-command: npm install
         command: npm test
         timeout: 10
-        max-score: 2
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        BASIC-CODE-VALIDATION-TEST_RESULTS: "${{steps.basic-code-validation-test.outputs.result}}"
+        TYPESCRIPT-COMPILE-CHECK_RESULTS: "${{steps.typescript-compile-check.outputs.result}}"
+        RUNTIME-TESTS_RESULTS: "${{steps.runtime-tests.outputs.result}}"
       with:
-        runners: basic-code-validation-test
+        runners: typescript-compile-check,runtime-tests
