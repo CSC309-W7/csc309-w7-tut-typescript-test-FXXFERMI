@@ -1,0 +1,32 @@
+{
+  "name": "csc309-w7-typescript-tests-csc309w7_winter2026",
+  "version": "1.0.0",
+  "description": "This is the CSC309 Week 7 TUT Coding Test",
+  "type": "module",
+
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC309-W7/csc309-w7-typescript-tests-CSC309W7_Winter2026.git"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
+  "bugs": {
+    "url": "https://github.com/CSC309-W7/csc309-w7-typescript-tests-CSC309W7_Winter2026/issues"
+  },
+
+  "homepage": "https://github.com/CSC309-W7/csc309-w7-typescript-tests-CSC309W7_Winter2026#readme",
+
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
